@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.06';
+$VERSION = '0.07';
 
 sub new {
   my $class = shift;
@@ -182,6 +182,9 @@ Yuri Karaban F<E<lt>tech@askold.netE<gt>>.
 Algorithm of computing checksum taken from mozilla module
 pagerankstatus F<http://pagerankstatus.mozdev.org> by
 Stephane Queraud F<E<lt>squeraud@toteme.comE<gt>>.
+
+Algorithm was modified (15-09-2004) according to new algorithm of
+computingchecksum in googlebar.
 
 =head1 COPYRIGHT
 

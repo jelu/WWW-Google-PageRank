@@ -1,3 +1,11 @@
+2004-09-17	Yuri Karaban <tech@askold.net>
+
+	Release 0.07
+
+	Add note into perldoc that algorithm is actually
+        new. Because some people thinks that algorithm is old
+        according to perldoc ;)
+
 2004-09-16	Yuri Karaban <tech@askold.net>
 
 	Release 0.06
