@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 sub new {
   my $class = shift;
@@ -51,16 +51,7 @@ sub _compute_ch_new {
   my $ch = _compute_ch($url);
   $ch = (($ch % 0x0d) & 7) | (($ch / 7) << 2);
 
-  my $str;
-  my $ctr = 0;
-  while ($ctr < 180) {
-    my $t = $ch;
-    _wsub($t, $ctr);
-    $str .= pack("V", $t);
-    $ctr += 9;
-  }
-
-  return _compute_ch($str);
+  return _compute_ch(pack("V20", map {my $t = $ch; _wsub($t, $_*9); $t} 0..19));
 }
 
 sub _compute_ch {

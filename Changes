@@ -1,0 +1,13 @@
+2004-09-16	Yuri Karaban <tech@askold.net>
+
+	Release 0.06
+
+	Cosmetic change in WWW/Google/PageRank.pm.
+	Added Changes to distribution
+
+
+2004-09-15	Yuri Karaban <tech@askold.net>
+
+	Release 0.05
+	Changed algorithm of computing url checksum (as google changed it in toolbar)
+	Function now called _compute_ch_new

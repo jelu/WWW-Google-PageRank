@@ -1,5 +1,6 @@
 MANIFEST
 README
+Changes
 Makefile.PL
 lib/WWW/Google/PageRank.pm
 t/00use.t
