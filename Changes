@@ -1,3 +1,20 @@
+2004-11-16	Yuri Karaban <tech@askold.net>
+
+	Release 0.09
+
+	Get PR only handle 'http' urls.
+        Changed to match url m{^https?://}i
+
+2004-11-07	Yuri Karaban <tech@askold.net>
+
+	Release 0.08
+
+        if method get called in array context returned value
+        is array from two elements where first element is pagerang and
+        second is HTTP::Response form LWP.
+
+        It is handy to use it to see reason why unable to get pagerank.
+
 2004-09-17	Yuri Karaban <tech@askold.net>
 
 	Release 0.07

@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 sub new {
   my $class = shift;
@@ -26,7 +26,7 @@ sub new {
 
 sub get {
   my ($self, $url) = @_;
-  return unless defined $url and $url =~ m[^http://];
+  return unless defined $url and $url =~ m[^https?://]i;
 
   $url =~ s/(?<=\?).*$//;
   my $ch = '6' . _compute_ch_new('info:' . $url);
