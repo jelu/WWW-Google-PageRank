@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.07';
+$VERSION = '0.08';
 
 sub new {
   my $class = shift;
@@ -34,14 +34,18 @@ sub get {
     '&ie=UTF-8&oe=UTF-8&features=Rank&q=info:' . uri_escape($url);
 
   my $resp = $self->{ua}->get($query);
-  if ($resp->is_success) {
-    if ($resp->content =~ /Rank_\d+:\d+:(\d+)/) {
+  if ($resp->is_success && $resp->content =~ /Rank_\d+:\d+:(\d+)/) {
+    if (wantarray) {
+      return ($1, $resp);
+    } else {
       return $1;
+    }
+  } else {
+    if (wantarray) {
+      return (undef, $resp);
     } else {
       return;
     }
-  } else {
-    return;
   }
 }
 
@@ -168,6 +172,12 @@ Queries Google for a specified pagerank URL and returns pagerank. If
 query successfull, integer value from 0 to 10 returned. If query fails
 for some reason (google unreachable, url does not begin from
 'http://', undefined url passed) it return C<undef>.
+
+In list context this function returns list from two elements where
+first is the result as in scalar context and the second is the
+C<HTTP::Response> object (returned by C<LWP::UserAgent::get>). This
+can be usefull for debugging purposes and for querying failure
+details.
 
 =back
 
