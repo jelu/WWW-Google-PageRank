@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 sub new {
   my $class = shift;
@@ -29,7 +29,7 @@ sub get {
   return unless defined $url and $url =~ m[^http://];
 
   $url =~ s/(?<=\?).*$//;
-  my $ch = '6' . _compute_ch('info:' . $url);
+  my $ch = '6' . _compute_ch_new('info:' . $url);
   my $query = 'http://' . $self->{host} . '/search?client=navclient-auto&ch=' . $ch .
     '&ie=UTF-8&oe=UTF-8&features=Rank&q=info:' . uri_escape($url);
 
@@ -43,6 +43,24 @@ sub get {
   } else {
     return;
   }
+}
+
+sub _compute_ch_new {
+  my $url = shift;
+
+  my $ch = _compute_ch($url);
+  $ch = (($ch % 0x0d) & 7) | (($ch / 7) << 2);
+
+  my $str;
+  my $ctr = 0;
+  while ($ctr < 180) {
+    my $t = $ch;
+    _wsub($t, $ctr);
+    $str .= pack("V", $t);
+    $ctr += 9;
+  }
+
+  return _compute_ch($str);
 }
 
 sub _compute_ch {
