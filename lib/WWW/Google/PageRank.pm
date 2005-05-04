@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 sub new {
   my $class = shift;
@@ -62,8 +62,7 @@ sub _compute_ch {
   my $url = shift;
 
   my @url = map {ord $_} split '', $url;
-  my @mixo;
-  my ($init, $a, $b, $c, $k) = (0xe6359a60, 0x9e3779b9, 0x9e3779b9, 0xe6359a60, 0);
+  my ($a, $b, $c, $k) = (0x9e3779b9, 0x9e3779b9, 0xe6359a60, 0);
   my $len = scalar @url;
 
   while ($len >= 12) {
