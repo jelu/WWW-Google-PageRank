@@ -1,3 +1,12 @@
+2006-03-23	Yuri Karaban <tech@askold.net>
+
+	Release 0.11
+
+	Updated example in SYNOPSIS ($gpr->get was called in list
+	context)
+
+	Do not trim query string in url.
+
 2005-05-04	Yuri Karaban <tech@askold.net>
 
 	Release 0.10

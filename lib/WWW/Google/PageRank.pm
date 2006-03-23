@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 sub new {
   my $class = shift;
@@ -28,7 +28,6 @@ sub get {
   my ($self, $url) = @_;
   return unless defined $url and $url =~ m[^https?://]i;
 
-  $url =~ s/(?<=\?).*$//;
   my $ch = '6' . _compute_ch_new('info:' . $url);
   my $query = 'http://' . $self->{host} . '/search?client=navclient-auto&ch=' . $ch .
     '&ie=UTF-8&oe=UTF-8&features=Rank&q=info:' . uri_escape($url);
@@ -127,7 +126,7 @@ WWW::Google::PageRank - Query google pagerank of page
 
  use WWW::Google::PageRank;
  my $pr = WWW::Google::PageRank->new;
- print $pr->get('http://www.yahoo.com/'), "\n";
+ print scalar($pr->get('http://www.yahoo.com/')), "\n";
 
 =head1 DESCRIPTION
 
@@ -197,7 +196,7 @@ computingchecksum in googlebar.
 
 =head1 COPYRIGHT
 
-Copyright 2004, Yuri Karaban, All Rights Reserved.
+Copyright 2004-2006, Yuri Karaban, All Rights Reserved.
 
 You may use, modify, and distribute this package under the
 same terms as Perl itself.
