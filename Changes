@@ -1,3 +1,9 @@
+2006-04-25	Yuri Karaban <tech@askold.net>
+
+	Release 0.12
+
+	Work correctly when specified "use encoding 'utf8'"
+
 2006-03-23	Yuri Karaban <tech@askold.net>
 
 	Release 0.11

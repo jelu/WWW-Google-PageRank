@@ -1,5 +1,6 @@
 #!perl -w
 
+use encoding 'utf8';
 use WWW::Google::PageRank;
 
 my @pattern =

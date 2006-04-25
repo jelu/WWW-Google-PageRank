@@ -10,7 +10,9 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.11';
+use bytes;
+
+$VERSION = '0.12';
 
 sub new {
   my $class = shift;
