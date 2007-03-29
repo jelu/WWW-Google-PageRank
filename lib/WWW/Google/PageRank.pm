@@ -10,9 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-use bytes;
-
-$VERSION = '0.12';
+$VERSION = '0.13';
 
 sub new {
   my $class = shift;
@@ -62,7 +60,7 @@ sub _compute_ch_new {
 sub _compute_ch {
   my $url = shift;
 
-  my @url = map {ord $_} split '', $url;
+  my @url = unpack("C*", $url);
   my ($a, $b, $c, $k) = (0x9e3779b9, 0x9e3779b9, 0xe6359a60, 0);
   my $len = scalar @url;
 

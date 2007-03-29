@@ -1,3 +1,13 @@
+2007-03-29      Yuri Karaban <tech@askold.net>
+
+	Release 0.13
+
+	Now it should work with the "use encoding 'utf8'" in older
+        perl distributions (in 5.8.0 particularly).
+
+        Thanks to Jon Schutz for proposed patch.
+        This release closes rt 18913
+
 2006-04-25	Yuri Karaban <tech@askold.net>
 
 	Release 0.12
