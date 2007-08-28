@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.13';
+$VERSION = '0.14';
 
 sub new {
   my $class = shift;
@@ -20,6 +20,7 @@ sub new {
 				    'Mozilla/4.0 (compatible; GoogleToolbar 2.0.111-big; Windows XP 5.1)')
     or return;
   $self->{ua}->proxy('http', $par{proxy}) if $par{proxy};
+  $self->{ua}->timeout($par{timeout}) if $par{timeout};
   $self->{host} = $par{host} || 'toolbarqueries.google.com';
   bless($self, $class);
 }
@@ -152,6 +153,7 @@ The following options correspond to attribute methods described below:
    -----------             --------------------
    agent                   "Mozilla/4.0 (compatible; GoogleToolbar 2.0.111-big; Windows XP 5.1)"
    proxy                   undef
+   timeout                 undef
    host                    "toolbarqueries.google.com"
 
 C<agent> specifies the header 'User-Agent' when querying Google.  If
