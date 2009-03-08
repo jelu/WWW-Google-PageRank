@@ -1,5 +1,12 @@
 #!perl -w
 
+BEGIN {
+  if ($^V lt v5.8.0) {
+    print "1..0 # Skip perl 5.8.0 or newer required\n";
+    exit;
+  }
+}
+
 use encoding 'utf8';
 use WWW::Google::PageRank;
 

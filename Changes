@@ -1,3 +1,10 @@
+2009-03-08      Yuri Karaban <tech@askold.net>
+
+	Release 0.15
+
+        Skip utf8.t on perl versions older than 5.8.0 (as "use
+        encoding" is not supported)
+
 2007-08-28      Yuri Karaban <tech@askold.net>
 
 	Release 0.14
