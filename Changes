@@ -1,3 +1,10 @@
+2010-12-07      Yuri Karaban <tech@askold.net>
+
+	Release 0.16
+
+        Accept env_proxy parameter in constructor in a way similar to
+        LWP::UserAgent (rt 63705).
+
 2009-03-08      Yuri Karaban <tech@askold.net>
 
 	Release 0.15

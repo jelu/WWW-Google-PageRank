@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.15';
+$VERSION = '0.16';
 
 sub new {
   my $class = shift;
@@ -19,6 +19,7 @@ sub new {
   $self->{ua} = LWP::UserAgent->new(agent => $par{agent} ||
 				    'Mozilla/4.0 (compatible; GoogleToolbar 2.0.111-big; Windows XP 5.1)')
     or return;
+  $self->{ua}->env_proxy if $par{env_proxy};
   $self->{ua}->proxy('http', $par{proxy}) if $par{proxy};
   $self->{ua}->timeout($par{timeout}) if $par{timeout};
   $self->{host} = $par{host} || 'toolbarqueries.google.com';
@@ -154,11 +155,16 @@ The following options correspond to attribute methods described below:
    agent                   "Mozilla/4.0 (compatible; GoogleToolbar 2.0.111-big; Windows XP 5.1)"
    proxy                   undef
    timeout                 undef
+   env_proxy               undef
    host                    "toolbarqueries.google.com"
 
 C<agent> specifies the header 'User-Agent' when querying Google.  If
 the C<proxy> option is passed in, requests will be made through
 specified poxy. C<proxy> is the host which serve requests from Googlebar.
+
+If the C<env_proxy> option is passed in with a TRUE value, then proxy
+settings are read from environment variables (see
+C<LWP::UserAgent::env_proxy>)
 
 =back
 
