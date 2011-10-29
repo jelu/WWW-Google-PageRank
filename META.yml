@@ -1,23 +1,23 @@
---- #YAML:1.0
-name:               WWW-Google-PageRank
-version:            0.16
-abstract:           ~
+---
+abstract: unknown
 author:
-    - Yuri Karaban <tech@askold.net>
-license:            unknown
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
+  - 'Yuri Karaban <ykar@cpan.org>'
 build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    LWP::UserAgent:  0
-    URI::Escape:     0
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.56
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.59, CPAN::Meta::Converter version 2.112621'
+license: unknown
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: WWW-Google-PageRank
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  LWP::UserAgent: 0
+  URI::Escape: 0
+version: 0.17

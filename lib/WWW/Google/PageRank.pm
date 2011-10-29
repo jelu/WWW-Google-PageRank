@@ -10,7 +10,7 @@ use vars qw($VERSION);
 use LWP::UserAgent;
 use URI::Escape;
 
-$VERSION = '0.16';
+$VERSION = '0.17';
 
 sub new {
   my $class = shift;
@@ -31,7 +31,7 @@ sub get {
   return unless defined $url and $url =~ m[^https?://]i;
 
   my $ch = '6' . _compute_ch_new('info:' . $url);
-  my $query = 'http://' . $self->{host} . '/search?client=navclient-auto&ch=' . $ch .
+  my $query = 'http://' . $self->{host} . '/tbr?client=navclient-auto&ch=' . $ch .
     '&ie=UTF-8&oe=UTF-8&features=Rank&q=info:' . uri_escape($url);
 
   my $resp = $self->{ua}->get($query);
@@ -193,7 +193,7 @@ If you find any, please report ;)
 
 =head1 AUTHOR
 
-Yuri Karaban F<E<lt>tech@askold.netE<gt>>.
+Yuri Karaban F<E<lt>ykar@cpan.orgE<gt>>.
 
 Algorithm of computing checksum taken from mozilla module
 pagerankstatus F<http://pagerankstatus.mozdev.org> by
