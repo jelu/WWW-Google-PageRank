@@ -1,0 +1,27 @@
+Source: libwww-google-pagerank-perl
+Section: perl
+Priority: optional
+Maintainer: Jerry Lundström <lundstrom.jerry@gmail.com>
+Build-Depends:
+ debhelper (>= 8.0.0)
+Build-Depends-Indep:
+ perl,
+ liburi-perl,
+ libwww-perl
+Standards-Version: 3.9.4
+
+Package: libwww-google-pagerank-perl
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${perl:Depends},
+ liburi-perl,
+ libwww-perl
+Description: Query google pagerank of page
+ The WWW::Google::PageRank is a class implementing a interface for
+ querying google pagerank.
+ .
+ To use it, you should create WWW::Google::PageRank object and use its
+ method get(), to query page rank of URL.
+ .
+ It uses LWP::UserAgent for making request to Google.
